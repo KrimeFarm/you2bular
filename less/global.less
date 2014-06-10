@@ -63,3 +63,60 @@
 //------------------------------------
 
 @import "less/custom-variables.less";
+
+
+// Video block
+
+#video-wrapper {
+  display: none;
+  @media (min-width: @screen-md-min) {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+#video-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#video-pattern {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  background: #fff;
+  opacity: .8;
+  z-index: 1;
+}
+
+
+#the-video-loader {
+  #video-pattern();
+  background: #fff;
+  opacity: 1;
+}
+
+.email-form-teaser {
+  @media (min-width: @screen-sm-min) {
+    div[class*="col-md"] {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
+
+#content-wrapper {
+  position: relative;
+  z-index: 10;
+}
