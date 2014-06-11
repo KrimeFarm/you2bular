@@ -15,11 +15,12 @@
   # defaults
   defaults =
     ratio: 16 / 9 # usually either 4/3 or 16/9 -- tweak as needed
-    videoId: "GOAEIMx39-w" # toy robot in space is a good default, no?
+    videoId: "tKQxFKV67yk"
     mute: true
     repeat: true
     width: $(window).width()
     wrapperZIndex: -1
+    loopBefore: 1000
     start: 0
 
 
@@ -65,27 +66,28 @@
     tubularLenght = undefined
     window.onPlayerReady = (e) ->
       resize()
-      e.target.mute()  if options.mute
-      e.target.seekTo options.start
+      e.target.mute() if options.mute
       e.target.playVideo()
-      e.target.setPlaybackQuality "highres"
-      tubularLenght = (e.target.getDuration() * 1000) - 1000
-      # console.log tubularLenght
+      tubularLenght = (e.target.getDuration() * 1000) - options.loopBefore
+      console.log tubularLenght
       return
 
     window.onPlayerStateChange = (state) ->
       if state.data is 2 and options.repeat # video ended and repeat option is set true
         $("#the-video-loader").fadeIn 10
-        # console.log "restart"
+        $(".post-loading-content").fadeOut 10
+
         player.seekTo options.start # restart
         player.playVideo()
 
       if state.data is 1
-        $("#the-video-loader").fadeOut 1000
+        player.seekTo options.start
+        $(".post-loading-content, #the-video-loader").fadeOut 1000
+        $(".post-loading-content").fadeIn 1000
         setTimeout ->
           player.pauseVideo()
-          $("#the-video-loader").fadeIn 10
-          # console.log "pause"
+          $("the-video-loader").fadeIn 10
+          $(".post-loading-content").fadeOut 10
           return
         , tubularLenght
       return

@@ -3,11 +3,12 @@
     var defaults, firstScriptTag, tag, tubular;
     defaults = {
       ratio: 16 / 9,
-      videoId: "GOAEIMx39-w",
+      videoId: "tKQxFKV67yk",
       mute: true,
       repeat: true,
       width: $(window).width(),
       wrapperZIndex: -1,
+      loopBefore: 1000,
       start: 0
     };
     tubular = function(node, options) {
@@ -49,22 +50,25 @@
         if (options.mute) {
           e.target.mute();
         }
-        e.target.seekTo(options.start);
         e.target.playVideo();
-        e.target.setPlaybackQuality("highres");
-        tubularLenght = (e.target.getDuration() * 1000) - 1000;
+        tubularLenght = (e.target.getDuration() * 1000) - options.loopBefore;
+        console.log(tubularLenght);
       };
       window.onPlayerStateChange = function(state) {
         if (state.data === 2 && options.repeat) {
           $("#the-video-loader").fadeIn(10);
+          $(".post-loading-content").fadeOut(10);
           player.seekTo(options.start);
           player.playVideo();
         }
         if (state.data === 1) {
-          $("#the-video-loader").fadeOut(1000);
+          player.seekTo(options.start);
+          $(".post-loading-content, #the-video-loader").fadeOut(1000);
+          $(".post-loading-content").fadeIn(1000);
           setTimeout(function() {
             player.pauseVideo();
-            $("#the-video-loader").fadeIn(10);
+            $("the-video-loader").fadeIn(10);
+            $(".post-loading-content").fadeOut(10);
           }, tubularLenght);
         }
       };
