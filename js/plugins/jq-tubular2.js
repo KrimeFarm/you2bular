@@ -3,11 +3,11 @@
     var defaults, firstScriptTag, tag, tubular;
     defaults = {
       ratio: 16 / 9,
-      videoId: "ZCAnLxRvNNc",
+      videoId: "GOAEIMx39-w",
       mute: true,
       repeat: true,
       width: $(window).width(),
-      wrapperZIndex: 99,
+      wrapperZIndex: -1,
       start: 0
     };
     tubular = function(node, options) {

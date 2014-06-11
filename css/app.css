@@ -6140,8 +6140,8 @@ button.close {
   min-height: 100%;
   width: auto;
   height: auto;
-  background: #fff;
-  opacity: .8;
+  background: url(../images/background.png);
+  opacity: .3;
   z-index: 1;
 }
 #the-video-loader {
@@ -6152,7 +6152,8 @@ button.close {
   min-height: 100%;
   width: auto;
   height: auto;
-  opacity: .8;
+  background: url(../images/background.png);
+  opacity: .3;
   z-index: 1;
   background: #fff;
   opacity: 1;

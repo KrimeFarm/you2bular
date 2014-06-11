@@ -10,17 +10,11 @@
   # defaults
   defaults =
     ratio: 16 / 9 # usually either 4/3 or 16/9 -- tweak as needed
-    videoId: "ZCAnLxRvNNc" # toy robot in space is a good default, no?
+    videoId: "GOAEIMx39-w" # toy robot in space is a good default, no?
     mute: true
     repeat: true
     width: $(window).width()
-    wrapperZIndex: 99
-    # playButtonClass: "tubular-play"
-    # pauseButtonClass: "tubular-pause"
-    # muteButtonClass: "tubular-mute"
-    # volumeUpClass: "tubular-volume-up"
-    # volumeDownClass: "tubular-volume-down"
-    # increaseVolumeBy: 10
+    wrapperZIndex: -1
     start: 0
 
 
@@ -122,39 +116,6 @@
     $(window).on "resize.tubular", ->
       resize()
       return
-
-    # play button
-    # pause button
-    # mute button
-    # volume down button
-    # $("body").on("click", "." + options.playButtonClass, (e) -> # volume up button
-    #   e.preventDefault()
-    #   player.playVideo()
-    #   return
-    # ).on("click", "." + options.pauseButtonClass, (e) ->
-    #   e.preventDefault()
-    #   player.pauseVideo()
-    #   return
-    # ).on("click", "." + options.muteButtonClass, (e) ->
-    #   e.preventDefault()
-    #   (if (player.isMuted()) then player.unMute() else player.mute())
-    #   return
-    # ).on("click", "." + options.volumeDownClass, (e) ->
-    #   e.preventDefault()
-    #   currentVolume = player.getVolume()
-    #   currentVolume = options.increaseVolumeBy  if currentVolume < options.increaseVolumeBy
-    #   player.setVolume currentVolume - options.increaseVolumeBy
-    #   return
-    # ).on "click", "." + options.volumeUpClass, (e) ->
-    #   e.preventDefault()
-    #   player.unMute()  if player.isMuted() # if mute is on, unmute
-    #   currentVolume = player.getVolume()
-    #   currentVolume = 100 - options.increaseVolumeBy  if currentVolume > 100 - options.increaseVolumeBy
-    #   player.setVolume currentVolume + options.increaseVolumeBy
-    #   return
-    #
-    # return
-
 
   # load yt iframe js api
   tag = document.createElement("script")

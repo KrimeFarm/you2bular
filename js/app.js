@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     return $('#wrapper').tubular({
-      videoId: 'CQSSXwFsTyM'
+      videoId: 'GOAEIMx39-w'
     });
   });
 

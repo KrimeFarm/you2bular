@@ -3,11 +3,11 @@
     var defaults, firstScriptTag, tag, tubular;
     defaults = {
       ratio: 16 / 9,
-      videoId: "ZCAnLxRvNNc",
+      videoId: "GOAEIMx39-w",
       mute: true,
       repeat: true,
       width: $(window).width(),
-      wrapperZIndex: 99,
+      wrapperZIndex: -1,
       start: 0
     };
     tubular = function(node, options) {
@@ -16,6 +16,10 @@
       $body = $("body");
       $node = $(node);
       tubularContainer = "<div id=\"tubular-container\" style=\"overflow: hidden; position: fixed; z-index: 1; width: 100%; height: 100%\"><div id=\"tubular-player\" style=\"position: absolute\"></div></div><div id=\"tubular-shield\" style=\"width: 100%; height: 100%; z-index: 2; position: absolute; left: 0; top: 0;\"></div>";
+      $("html,body").css({
+        width: "100%",
+        height: "100%"
+      });
       $body.prepend(tubularContainer);
       $node.css({
         position: "relative",
