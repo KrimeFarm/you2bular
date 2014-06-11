@@ -1,7 +1,12 @@
 # jQuery tubular plugin ver2
-#|* Origibally developed by Sean McCambridge
+#|* Originally developed by Sean McCambridge
 #|* http://www.seanmccambridge.com/tubular
 #|* licensed under the MIT License
+#|* =========================================
+#|* Version brought to you by KrimeFarm
+#|* developed by Alessandro Vioni
+#|* licensed under the MIT License
+#|* Summer 2014
 
 (($, window) ->
 
