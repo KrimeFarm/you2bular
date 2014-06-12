@@ -16,7 +16,7 @@ start: 10
 
 Most of those options should be pretty self explanatory, all but `loopBefore` which determines the numbers of seconds to loop the video before it ends (1 seconds should be enough to prevent the video to stop before it loops).
 
-## Example
+## EXAMPLE
 
 You should clone the repository and look at the **less** files and the **js** or **Coffeescript** files to understand how it can be integrated into your website, but in a few steps:
 
@@ -27,13 +27,13 @@ You should clone the repository and look at the **less** files and the **js** or
 
 <br><hr><br>
 
-# :exclamation: Development :exclamation:
+# :exclamation: DEVELOPMENT :exclamation:
 
 Bugfixes, forks, suggestions and whatever you've in mind to do with this code, are more than welcome.
 
 <br><hr><br>
 
-### Distribuited under The MIT license (MIT)
+### DISTRIBUITED UNDER THE MIT LICENSE (MIT)
 
 Copyright (c) 2014 KrimeFarm
 
