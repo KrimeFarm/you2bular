@@ -1,7 +1,7 @@
 ![you2bular](glogo.png)
 =======================
 #### you2bular is a [jQuery Tubular](http://www.seanmccambridge.com/tubular/) fork with better customizations and animations, that aims to be easily integrable with [Bootstrap](http://getbootstrap.com).
-## Options
+## OPTIONS
 
 ```coffeescript
 ratio: 16 / 9 # usually either 4/3 or 16/9
