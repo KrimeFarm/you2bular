@@ -10,8 +10,6 @@
 
 (($, window) ->
 
-  # test for feature support and return if failure
-
   # defaults
   defaults =
     ratio: 16 / 9 # usually either 4/3 or 16/9 -- tweak as needed
@@ -21,8 +19,7 @@
     width: $(window).width()
     wrapperZIndex: -1
     loopBefore: 1000
-    start: 0
-
+    start: 10
 
   # methods
   tubular = (node, options) -> # should be called on the wrapper div
@@ -53,9 +50,11 @@
         playerVars:
           controls: 0
           showinfo: 0
-          modestbranding: 1
+          disablekb: 1
+          modestbranding: 1 if options.repeat
           wmode: "transparent"
           rel: 0
+          start: options.start
 
         events:
           onReady: onPlayerReady
@@ -64,33 +63,41 @@
       return
 
     tubularLenght = undefined
-    window.onPlayerReady = (e) ->
+    window.onPlayerReady = (event) ->
       resize()
-      e.target.mute() if options.mute
-      e.target.playVideo()
-      tubularLenght = (e.target.getDuration() * 1000) - options.loopBefore
+      event.target.mute() if options.mute
+      tubularLenght = (event.target.getDuration() * 1000) - options.loopBefore
       console.log tubularLenght
+      event.target.playVideo()
       return
 
     window.onPlayerStateChange = (state) ->
-      if state.data is 2 and options.repeat # video ended and repeat option is set true
-        $("#the-video-loader").fadeIn 10
-        $(".post-loading-content").fadeOut 10
 
-        player.seekTo options.start # restart
+      clearTimeout window.theStop
+
+      if state.data is 2 and options.repeat # video ended and repeat option is set true
+        console.log "restart"
+        $("#the-video-loader").fadeOut 500
         player.playVideo()
 
       if state.data is 1
-        player.seekTo options.start
-        $(".post-loading-content, #the-video-loader").fadeOut 1000
+        player.playVideo()
+        $("#the-video-loader").fadeOut 1000
         $(".post-loading-content").fadeIn 1000
-        setTimeout ->
-          player.pauseVideo()
-          $("the-video-loader").fadeIn 10
-          $(".post-loading-content").fadeOut 10
-          return
+        window.theStop = setTimeout ->
+          console.log "timeout"
+          if options.repeat
+            $("#video-loader").css "display", "none"
+            $("#the-video-loader").fadeIn 500, ->
+              player.pauseVideo()
+              player.seekTo options.start
+              return
+            return
+          else
+            player.pauseVideo()
+            return
         , tubularLenght
-      return
+        return
 
 
     # resize handler updates width, height and offset of player after resize/init
@@ -123,6 +130,7 @@
     $(window).on "resize.tubular", ->
       resize()
       return
+    return
 
   # load yt iframe js api
   tag = document.createElement("script")
@@ -136,6 +144,7 @@
       # let's only run one
       $.data this, "tubular_instantiated", tubular(this, options)  unless $.data(this, "tubular_instantiated")
       return
+    return
 
 
   return

@@ -2,4 +2,5 @@
 $ ->
   $('#wrapper').tubular
     videoId: 'mcixldqDIEQ'
-    start: 10
+    start: 9
+    loopBefore: 295000
