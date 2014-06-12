@@ -110,7 +110,7 @@
     tag.src = "//www.youtube.com/iframe_api";
     firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    $.fn.tubular = function(options) {
+    $.fn.you2bular = function(options) {
       this.each(function() {
         if (!$.data(this, "tubular_instantiated")) {
           $.data(this, "tubular_instantiated", tubular(this, options));

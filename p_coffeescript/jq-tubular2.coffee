@@ -139,7 +139,7 @@
   firstScriptTag.parentNode.insertBefore tag, firstScriptTag
 
   # create plugin
-  $.fn.tubular = (options) ->
+  $.fn.you2bular = (options) ->
     @each ->
       # let's only run one
       $.data this, "tubular_instantiated", tubular(this, options)  unless $.data(this, "tubular_instantiated")

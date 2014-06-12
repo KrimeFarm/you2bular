@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    return $('#wrapper').tubular({
+    return $('#wrapper').you2bular({
       videoId: 'mcixldqDIEQ',
       start: 9,
       loopBefore: 295000
