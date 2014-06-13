@@ -25,13 +25,15 @@ You should clone the repository and look at the **less** files and the **js** or
 - Call it in your js/coffeescript file
 - Youre ready to go :thumbsup:
 
-<br><hr><br>
+###### If you're stuck somewhere between here and there, just open the `index.html` file.
+
+<br><hr><br><br>
 
 # :exclamation: DEVELOPMENT :exclamation:
 
 Bugfixes, forks, suggestions and whatever you've in mind to do with this code, are more than welcome.
 
-<br><hr><br>
+<br><br><hr><br>
 
 ### DISTRIBUITED UNDER THE MIT LICENSE (MIT)
 
